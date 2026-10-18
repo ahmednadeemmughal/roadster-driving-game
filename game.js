@@ -414,10 +414,14 @@ function init() {
   setLoadingProgress(100);
 
   window.setTimeout(() => {
-    if (loadingScreen) loadingScreen.classList.add("hidden");
-    running = true;
-    animate();
-  }, 450);
+  if (loadingScreen) {
+    loadingScreen.classList.add("hidden");
+    loadingScreen.style.display = "none";
+  }
+
+  running = true;
+  animate();
+}, 450);
 }
 
 function bindControls() {
