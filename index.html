@@ -26,6 +26,8 @@
         <button id="pause-button" class="icon-button" aria-label="Pause game">Ⅱ</button>
       </header>
 
+      <section id="boost-display" aria-label="Boost energy"><div class="boost-heading"><span id="boost-value">BOOST</span><span>THRUSTERS</span></div><div class="boost-track"><div id="boost-fill"></div></div><p>HOLD SHIFT OR BOOST</p></section>
+
       <section id="speed-display" aria-label="Vehicle speed">
         <div class="speed-row">
           <span id="speed-value">000</span>
@@ -72,6 +74,7 @@
           <button class="control-button" id="steer-right" aria-label="Steer right">→</button>
         </div>
         <div class="pedal-controls">
+          <button class="control-button boost-button" id="boost-button" aria-label="Activate boost">BOOST</button>
           <button class="control-button brake-button" id="brake-button" aria-label="Brake">BRAKE</button>
           <button class="control-button accelerate-button" id="accelerate-button" aria-label="Accelerate">▲<small>THROTTLE</small></button>
         </div>
