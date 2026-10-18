@@ -680,3 +680,25 @@ button {
     animation-duration: .01ms !important;
   }
 }
+
+
+/* Boost meter and thruster control */
+#boost-display {
+  position: absolute;
+  top: 178px;
+  left: 28px;
+  width: 180px;
+  z-index: 3;
+  color: #eaf5ff;
+  pointer-events: none;
+}
+.boost-heading { display:flex; justify-content:space-between; gap:12px; font-size:9px; letter-spacing:2px; font-weight:800; color:#8edbff; }
+.boost-track { margin-top:8px; height:5px; background:rgba(140,180,210,.18); overflow:hidden; border-radius:5px; box-shadow:0 0 12px rgba(35,165,255,.15); }
+#boost-fill { width:100%; height:100%; background:linear-gradient(90deg,#187bff,#54eaff); box-shadow:0 0 12px #35baff; transition:width .08s linear; }
+#boost-display p { margin:7px 0 0; color:#8297ad; font-size:8px; letter-spacing:1.3px; }
+.boost-button { border-color:rgba(59,190,255,.55)!important; color:#77d8ff!important; background:rgba(12,76,120,.35)!important; }
+.boost-button.active { background:rgba(0,157,255,.45)!important; box-shadow:0 0 20px rgba(0,157,255,.4); }
+@media (max-width: 800px) {
+  #boost-display { top: 165px; left: 22px; width: 145px; }
+  .pedal-controls { gap:8px; }
+}
