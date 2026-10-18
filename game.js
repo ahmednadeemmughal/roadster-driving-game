@@ -387,6 +387,7 @@ function init() {
   });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.8));
   renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setClearColor(0x07101d, 1);
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -397,7 +398,7 @@ function init() {
   renderer.domElement.style.inset = "0";
   renderer.domElement.style.width = "100%";
   renderer.domElement.style.height = "100%";
-  renderer.domElement.style.zIndex = "1";
+  renderer.domElement.style.zIndex = "0";
   renderer.domElement.style.display = "block";
   canvasHost.prepend(renderer.domElement);
 
