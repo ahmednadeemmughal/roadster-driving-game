@@ -378,6 +378,7 @@ function init() {
     1800
   );
   camera.position.set(0, 5.1, 10.5);
+  camera.lookAt(0, 0.9, -11);
 
   renderer = new THREE.WebGLRenderer({
     antialias: true,
@@ -392,11 +393,11 @@ function init() {
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.12;
   renderer.domElement.id = "game-canvas";
-  renderer.domElement.style.position = "fixed";
+  renderer.domElement.style.position = "absolute";
   renderer.domElement.style.inset = "0";
   renderer.domElement.style.width = "100%";
   renderer.domElement.style.height = "100%";
-  renderer.domElement.style.zIndex = "0";
+  renderer.domElement.style.zIndex = "1";
   renderer.domElement.style.display = "block";
   canvasHost.prepend(renderer.domElement);
 
