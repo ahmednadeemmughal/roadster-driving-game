@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#080b12">
+  <meta name="description" content="A futuristic 3D Roadster driving simulator.">
+  <title>ROADSTER — Driving Simulator</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div id="game-container">
+    <div id="loading-screen">
+      <div class="loading-brand">ROADSTER<span>.</span></div>
+      <div class="loading-track"><div id="loading-progress"></div></div>
+      <p id="loading-message">INITIALIZING ENGINE...</p>
+    </div>
+
+    <div id="game-ui">
+      <header class="top-bar">
+        <a class="brand" href="#" aria-label="Roadster home">R<span>.</span></a>
+        <div class="status">
+          <span class="status-dot"></span>
+          <span id="game-status">READY TO DRIVE</span>
+        </div>
+        <button id="pause-button" class="icon-button" aria-label="Pause game">Ⅱ</button>
+      </header>
+
+      <section id="speed-display" aria-label="Vehicle speed">
+        <div class="speed-row">
+          <span id="speed-value">000</span>
+          <span class="speed-unit">KM/H</span>
+        </div>
+        <div class="speed-track"><div id="speed-fill"></div></div>
+        <div class="speed-caption">VEHICLE SPEED</div>
+      </section>
+
+      <div id="center-message" aria-live="polite"></div>
+
+      <section id="start-menu" class="menu-panel">
+        <p class="eyebrow">NEXT GENERATION DRIVING</p>
+        <h1>OWN THE<br><span>OPEN ROAD.</span></h1>
+        <p class="menu-description">
+          Take control of a futuristic electric sports car.
+          Explore the track and master your driving.
+        </p>
+        <button id="start-button" class="primary-button">START DRIVING <span>↗</span></button>
+        <p class="control-hint">WASD / ARROW KEYS · TOUCH CONTROLS ON MOBILE</p>
+      </section>
+
+      <section id="pause-menu" class="menu-panel hidden">
+        <p class="eyebrow">SESSION PAUSED</p>
+        <h2>TAKE A<br><span>BREATHER.</span></h2>
+        <button id="resume-button" class="primary-button">RESUME DRIVING</button>
+        <button id="restart-button" class="secondary-button">RESTART SESSION</button>
+      </section>
+
+      <section id="session-stats">
+        <div class="stat-item">
+          <span class="stat-label">DISTANCE</span>
+          <span class="stat-value"><span id="distance-value">0</span> <small>M</small></span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">BEST SPEED</span>
+          <span class="stat-value"><span id="best-speed-value">0</span> <small>KM/H</small></span>
+        </div>
+      </section>
+
+      <div id="mobile-controls" aria-label="Driving controls">
+        <div class="steering-controls">
+          <button class="control-button" id="steer-left" aria-label="Steer left">←</button>
+          <button class="control-button" id="steer-right" aria-label="Steer right">→</button>
+        </div>
+        <div class="pedal-controls">
+          <button class="control-button brake-button" id="brake-button" aria-label="Brake">BRAKE</button>
+          <button class="control-button accelerate-button" id="accelerate-button" aria-label="Accelerate">▲<small>THROTTLE</small></button>
+        </div>
+      </div>
+
+      <footer class="bottom-bar">
+        <span>ROADSTER SIMULATOR</span>
+        <span>FREE DRIVE <span class="footer-dot">●</span></span>
+      </footer>
+    </div>
+  </div>
+
+  <script type="module" src="./game.js"></script>
+</body>
+</html>
