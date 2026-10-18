@@ -10,7 +10,7 @@ const pauseMenu = $("pause-menu");
 const pauseButton = $("pause-button");
 const speedValue = $("speed-value");
 const distanceValue = $("distance-value");
-const bestSpeedValue = $("best-speed");
+const bestSpeedValue = $("best-speed-value");
 const centerMessage = $("center-message");
 
 let scene, camera, renderer, car, wheels = [];
@@ -367,7 +367,7 @@ function setLoadingProgress(percent) {
 }
 
 function init() {
-  const canvasHost = document.body;
+  const canvasHost = $("game-container") || document.body;
   scene = new THREE.Scene();
   clock = new THREE.Clock();
 
