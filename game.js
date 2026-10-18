@@ -35,7 +35,11 @@ let engineGain = null;
 let audioStarted = false;
 
 const keys = Object.create(null);
-const touch = { left: false, right: false, accelerate: false, brake: false };
+const touch = { left: false, right: false, accelerate: false, brake: false, boost: false };
+let boost = 100;
+let boostActive = false;
+let flipAngle = 0;
+let exhaustFlames = [];
 
 const config = {
   maxSpeed: 92,
@@ -474,6 +478,7 @@ function bindControls() {
   bindHold("steer-right", "right");
   bindHold("accelerate-button", "accelerate");
   bindHold("brake-button", "brake");
+  bindHold("boost-button", "boost");
 
   const startButton = $("start-button");
   if (startButton) startButton.addEventListener("click", startGame);
@@ -574,6 +579,10 @@ function startAudio() {
   }
 }
 
+function showBoostEffects() {
+  if (centerMessage && !centerMessage.classList.contains("visible")) showMessage("THRUSTERS ENGAGED", 500);
+}
+
 function updateAudio() {
   if (!engineAudio || !engineOscillator || !engineGain) return;
   const now = engineAudio.currentTime;
@@ -585,6 +594,14 @@ function updateDriving(dt) {
   if (!started || paused) return;
 
   const accelerating = keys["arrowup"] || keys["w"] || touch.accelerate;
+  boostActive = (keys["shift"] || touch.boost) && boost > 0;
+  if (boostActive) {
+    speed += 62 * dt;
+    boost = Math.max(0, boost - 34 * dt);
+  } else {
+    boost = Math.min(100, boost + 7 * dt);
+  }
+  if (boostActive) showBoostEffects();
   const braking = keys["arrowdown"] || keys["s"] || touch.brake;
   const left = keys["arrowleft"] || keys["a"] || touch.left;
   const right = keys["arrowright"] || keys["d"] || touch.right;
